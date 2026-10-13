@@ -14,10 +14,10 @@ const ex2_text = document.getElementById("ex2_text");
 const ex2_cont = document.getElementById("ex2_content");
 
 const letterRegEx = /[a-zA-Z]/;
-const specialRegEx = /[^0-9 ]/;
+const specialRegEx = /[^0-9a-zA-Z]/;
 
 ex2_text.addEventListener("input", () => {
-  const phone_number = ex2_text.textContent;
+  const phone_number = ex2_text.value;
   let valid = true;
 
   ex2_cont.textContent = "";
@@ -26,16 +26,16 @@ ex2_text.addEventListener("input", () => {
     valid = false;
     ex2_cont.textContent += "Długość numeru musi być równa 9\n";
   }
-  if (phone_number.test(letterRegEx)) {
+  if (letterRegEx.test(phone_number)) {
     valid = false;
     ex2_cont.textContent += "Numer nie może zawierać liter\n";
   }
-  // if (phone_number.test(specialRegEx)) {
-  //   valid = false;
-  //   ex2_cont.textContent += "Numer nie może zawierać znaków specjalnych";
-  // }
+  if (specialRegEx.test(phone_number)) {
+    valid = false;
+    ex2_cont.textContent += "Numer nie może zawierać znaków specjalnych ani spacji\n";
+  }
 
-  // if (valid) {
-  //   ex2_cont.textContent = "Numer telefonu jest poprawny";
-  // }
+  if (valid) {
+    ex2_cont.textContent = "Numer telefonu jest poprawny";
+  }
 });

@@ -21,3 +21,7 @@ body {
     background-color: red;
     width: 100px;
   }
+
+  #ex2_content {
+    white-space: pre-line;
+  }

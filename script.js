@@ -32,7 +32,7 @@ ex2_text.addEventListener("input", () => {
   }
   if (specialRegEx.test(phone_number)) {
     valid = false;
-    ex2_cont.textContent += "Numer nie może zawierać znaków specjalnych ani spacji\n";
+    ex2_cont.textContent += "Numer nie może zawierać znaków specjalnych\n";
   }
 
   if (valid) {
